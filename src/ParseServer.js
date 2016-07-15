@@ -195,8 +195,7 @@ class ParseServer {
     const userController = new UserController(emailControllerAdapter, appId, { verifyUserEmails });
     const liveQueryController = new LiveQueryController(liveQuery);
     const cacheController = new CacheController(cacheControllerAdapter, appId);
-    const schemaCache = new SchemaCache(appId, schemaCacheTTL);
-    const databaseController = new DatabaseController(databaseAdapter, schemaCache);
+    const databaseController = new DatabaseController(databaseAdapter, new SchemaCache(schemaCacheTTL));
     const hooksController = new HooksController(appId, databaseController, webhookKey);
 
     // TODO: create indexes on first creation of a _User object. Otherwise it's impossible to
@@ -251,7 +250,6 @@ class ParseServer {
       jsonLogs,
       revokeSessionOnPasswordReset,
       databaseController,
-      schemaCache,
       schemaCacheTTL
     });
 
