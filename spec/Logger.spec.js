@@ -60,4 +60,19 @@ describe('Logger', () => {
       done();
     });
   });
+
+  fit('should set log level', done => {
+    reconfigureServer({
+      logLevel: 'warn',
+      logsFolder: null,
+      silent: false,
+    }).then(() => {
+      const spy = spyOn(process.stdout, 'write');
+      logging.logger.info('hi', { key: 'value' });
+      expect(process.stdout.write).not.toHaveBeenCalled();
+      logging.logger.warn('hi', { key: 'value' });
+      expect(process.stdout.write).toHaveBeenCalled();
+      done();
+    });
+  });
 });
