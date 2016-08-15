@@ -8,6 +8,8 @@ import defaults  from '../../defaults';
 const logger = new winston.Logger();
 const additionalTransports = [];
 
+let gOptions;
+
 function updateTransports(options) {
   let transports = Object.assign({}, logger.transports);
   if (options) {
@@ -76,12 +78,15 @@ export function configureLogger({
     options.json = true;
     options.stringify = true;
   }
+
+  gOptions = options;
+
   updateTransports(options);
 }
 
 export function addTransport(transport) {
   additionalTransports.push(transport);
-  updateTransports();
+  updateTransports(gOptions);
 }
 
 export function removeTransport(transport) {
