@@ -22,7 +22,7 @@ export class FilesAdapter {
    * @return a promise that should fail if the storage didn't succeed
    *
    */
-  createFile(filename: string, data, contentType: string) { }
+  createFile(filename, data, contentType) { }
 
   deleteFile(filename) { }
 
