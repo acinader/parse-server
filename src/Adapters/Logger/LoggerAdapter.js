@@ -9,7 +9,7 @@
 
 export class LoggerAdapter {
   constructor(options) {}
-  log(level, message, /* meta */) {}
+  log(level, message /*, meta */) {}
 }
 
 export default LoggerAdapter;
