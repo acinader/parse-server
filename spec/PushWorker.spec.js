@@ -1,13 +1,15 @@
 var PushWorker = require('../src').PushWorker;
 var Config = require('../src/Config');
+var SQSEventEmitterMQ = require('../src/Adapters/MessageQueue/SQSEventEmitterMQ').SQSEventEmitterMQ;
 
-describe('PushWorker', () => {
+fdescribe('PushWorker', () => {
   it('should run with small batch', (done) => {
     const batchSize = 3;
     var sendCount = 0;
     reconfigureServer({
       push: {
         queueOptions: {
+          messageQueueAdapter: SQSEventEmitterMQ,
           disablePushWorker: true,
           batchSize
         }
@@ -23,6 +25,8 @@ describe('PushWorker', () => {
         getValidPushTypes: function() {
           return ['ios', 'android']
         }
+      }, {
+        messageQueueAdapter: SQSEventEmitterMQ,
       });
       var installations = [];
       while(installations.length != 10) {
@@ -43,7 +47,7 @@ describe('PushWorker', () => {
           alert: 'Hello world!'
         }
       }, {useMasterKey: true})
-    }).then(() => {
+    }, err => console.log(err)).then(() => {
       return new Promise((resolve) => {
         setTimeout(resolve, 500);
       });

@@ -8,7 +8,7 @@ export function isPushIncrementing(body) {
 }
 
 /**
- * Check whether the deviceType parameter in qury condition is valid or not.
+ * Check whether the deviceType parameter in query condition is valid or not.
  * @param {Object} where A query condition
  * @param {Array} validPushTypes An array of valid push types(string)
  */

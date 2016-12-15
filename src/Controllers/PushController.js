@@ -15,7 +15,7 @@ export class PushController {
     // Replace the expiration_time with a valid Unix epoch milliseconds time
     body['expiration_time'] = PushController.getExpirationTime(body);
     // TODO: If the req can pass the checking, we return immediately instead of waiting
-    // pushes to be sent. We probably change this behaviour in the future.
+    // pushes to be sent. We probably change this behavior in the future.
     let badgeUpdate = () => {
       return Promise.resolve();
     }
