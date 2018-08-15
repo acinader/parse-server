@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/cache.js"],"names":["AppCache","InMemoryCache","ttl","NaN"],"mappings":";;;;;;;AAAA;;AAEO,IAAIA,8BAAW,IAAIC,4BAAJ,CAAkB,EAACC,KAAKC,GAAN,EAAlB,CAAf;kBACQH,Q","file":"cache.js","sourcesContent":["import {InMemoryCache} from './Adapters/Cache/InMemoryCache';\n\nexport var AppCache = new InMemoryCache({ttl: NaN});\nexport default AppCache;\n"]}

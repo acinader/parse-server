@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/requiredParameter.js"],"names":["errorMessage"],"mappings":";;;;;;kBACgBA,YAAD,IAA+B;AAAE,QAAMA,YAAN;AAAoB,C","file":"requiredParameter.js","sourcesContent":["/** @flow */\nexport default (errorMessage: string): any => { throw errorMessage }\n"]}
