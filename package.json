@@ -16,7 +16,9 @@
     "LICENSE",
     "PATENTS",
     "postinstall.js",
-    "README.md"
+    "README.md",
+    ".babelrc",
+    "package-lock.json"
   ],
   "license": "BSD-3-Clause",
   "dependencies": {
