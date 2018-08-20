@@ -8,6 +8,7 @@
     "url": "https://github.com/parse-community/parse-server"
   },
   "files": [
+    "src/",
     "bin/",
     "lib/",
     "public_html/",
