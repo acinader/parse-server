@@ -3285,7 +3285,7 @@ describe('Parse.User testing', () => {
       }, done.fail);
   });
 
-  it('should not send a verification email if the user signed up using oauth', done => {
+  fit('should not send a verification email if the user signed up using oauth', done => {
     let emailCalledCount = 0;
     const emailAdapter = {
       sendVerificationEmail: () => {
@@ -3309,10 +3309,18 @@ describe('Parse.User testing', () => {
       expiration_date: new Date().toJSON(),
     }).then(user => {
       user.set('email', 'email2@host.com');
-      user.save().then(() => {
-        expect(emailCalledCount).toBe(0);
-        done();
-      });
+      user
+        .save()
+        .then(
+          () =>
+            new Promise(resolve => {
+              setTimeout(resolve, 3);
+            })
+        )
+        .then(() => {
+          expect(emailCalledCount).toBe(0);
+          done();
+        });
     });
   });
 
